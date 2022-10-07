@@ -1,0 +1,245 @@
+/* ********** Custom Properties ********** */
+
+:root {
+    --font: 'Roboto Mono', monospace;
+    --font-logo: 'Kaushan Script', cursive;
+    --color-purple-dark: #181622;
+    --color-purple: #853BCE;
+    --color-purple-grey: #33323E;
+    --color-white: #ffffff;
+    --color-grey-400: #6c6b7b;
+    --color-grey-500: #878593;
+    --color-grey-600: #a1a0ab;
+    --color-grey-700: #c4c4ca;
+    --color-blue-700: #8caef2;
+    --background: hsl(250, 24%, 9%);
+    --color-grey-100: hsl(246, 18%, 15%);
+    --color-pink: hsl(270, 70%, 65%);
+}
+
+/* ******************** Fluid Design ******************** */
+
+
+/* @link https://utopia.fyi/type/calculator?c=320,17,1.125,1920,20,1.333,6,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+
+:root {
+    --step--2: clamp(0.7rem, calc(0.87rem + -0.14vw), 0.84rem);
+    --step--1: clamp(0.94rem, calc(0.95rem + -0.01vw), 0.94rem);
+    --step-0: clamp(1.06rem, calc(1.03rem + 0.19vw), 1.25rem);
+    --step-1: clamp(1.2rem, calc(1.1rem + 0.47vw), 1.67rem);
+    --step-2: clamp(1.35rem, calc(1.17rem + 0.88vw), 2.22rem);
+    --step-3: clamp(1.51rem, calc(1.22rem + 1.45vw), 2.96rem);
+    --step-4: clamp(1.7rem, calc(1.25rem + 2.25vw), 3.95rem);
+    --step-5: clamp(1.91rem, calc(1.25rem + 3.35vw), 5.26rem);
+    --step-6: clamp(2.15rem, calc(1.18rem + 4.86vw), 7.01rem);
+}
+
+/* ********** Reset ********** */
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 16px;
+}
+
+/* ********** Reset ********** */
+* {
+    box-sizing: border-box;
+}
+
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 16px;
+    font-family: var(--font);
+    color: var(--color-white);
+}
+
+body {
+    margin: 0;
+    background-color: var(--background);
+    background-image: linear-gradient(38.73deg, rgba(204, 0, 187, 0.25) 0%, rgba(201, 32, 184, 0) 50%), linear-gradient(141.27deg, rgba(0, 70, 209, 0) 50%, rgba(0, 70, 209, 0.25) 100%);
+}
+
+/* ********** Components ********** */
+
+/* header */
+.main-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    flex-wrap: wrap;
+    top: 0;
+    padding: var(--step--1) var(--step-1);
+}
+
+.main-header .logo {
+    color: white;
+    font-family: var(--font-logo);
+    font-size: var(--step-2);
+}
+
+.main-header a {
+    color: var(--color-grey-600);
+    text-decoration: none;
+    font-size: var(--step--1);
+    font-weight: bold;
+    padding: var(--step--1) var(--step-3);
+}
+
+.main-header a:hover {
+    color: var(--color-white);
+}
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.number-menu {
+    color: var(--color-purple);
+}
+
+/* footer */
+
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    color: var(--color-grey-400);
+    font-size: 0.8rem;
+}
+
+/* ********** Utilities ********** */
+.box-info {
+    margin: var(--step-5) auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    font-size: var(--step--1);
+}
+
+.box-info > h3 {
+    font-size: var(--step-0);
+    margin: 0;
+}
+
+.box-info > ul {
+    padding: 0;
+}
+
+.hidden {
+    position: absolute;
+    top: -1000px;
+}
+
+.none {
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+
+    .container-btn {
+        display: none;
+    }
+
+    .main-nav {
+        opacity: 1;
+        pointer-events: auto;
+        position: static;
+        width: auto;
+        flex-direction: row;
+        height: auto;
+    }
+
+    .main-nav a {
+        margin: 0 var(--step-2);
+    }
+}
+
+/* ********** Site Styles ********** */
+
+.content-hero {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 0 calc(var(--step-6) * 1.3);
+}
+
+.hero span {
+    color: var(--color-purple);
+    font-size: var(--step--1);
+}
+
+.hero h1 {
+    font-size: var(--step-5);
+    margin: 0;
+    font-weight: bold;
+}
+
+.hero .profecion {
+    font-size: var(--step-5);
+    color: var(--color-grey-500);
+    margin: 0;
+    font-weight: bold;
+}
+
+.hero p {
+    color: var(--color-grey-500);
+    font-size: var(--step--1);
+}
+
+
+main {
+    padding: 0 calc(var(--step-6) * 1.3);
+}
+
+.study {
+    padding: var(--step-1) 0 0 var(--step-1);
+}
+
+.study strong {
+    color: var(--color-grey-600);
+}
+
+.info-place {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--color-grey-500);
+}
+
+.habilities ul li,
+.lenguajes ul li {
+    display: flex;
+    justify-content: space-between;
+    color: var(--color-grey-500);
+    padding: var(--step--2) 0 0 var(--step-1);
+    font-size: var(--step--1);
+}
+
+.points i {
+    color: var(--color-white);
+}
+
+.contact address {
+    color: var(--color-grey-500);
+    padding: 0.3rem 0 0 var(--step-1);
+}
+
+.contact address span {
+    color: var(--color-grey-600);
+    font-weight: bold;
+}
