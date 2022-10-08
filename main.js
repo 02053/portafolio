@@ -1,27 +1,27 @@
-((d) => {
-    const $btnMenuOpen = d.querySelector('.menu-open'),
-        $btnMenuClose = d.querySelector('.menu-close')
+const d = document;
 
-    $btnMenuOpen.addEventListener("click", (e) => {
-        $btnMenuOpen.classList.toggle("none")
-        $btnMenuClose.classList.toggle("none")
-    })
-
-    $btnMenuClose.addEventListener("click", (e) => {
-        $btnMenuOpen.classList.toggle("none")
-        $btnMenuClose.classList.toggle("none")
-    })
-
-    let w = window
-    let principalPosition = w.scrollY
-
-    w.onscroll = function() {
-        let actualPosition = w.scrollY
-        if (principalPosition >= actualPosition) {
-            document.querySelector(".main-header").style.top = "0"
-        } else {
-            document.querySelector(".main-header").style.top = "-100px"
+const hamburgerMenu = (menuBtn, menu, menuLink, btnOpen, btnClose) => {
+    d.addEventListener('click', (e) => {
+        if (e.target.matches(menuBtn) || e.target.matches(`${menuBtn} *`)) {
+            d.querySelector(menu).classList.toggle('is-active');
+            d.querySelector(btnOpen).classList.toggle('none');
+            d.querySelector(btnClose).classList.toggle('none');
         }
-        principalPosition = actualPosition
-    }
-})(document);
+
+        if (e.target.matches(menuLink)) {
+            d.querySelector(menu).classList.remove('is-active');
+            d.querySelector(btnOpen).classList.toggle('none');
+            d.querySelector(btnClose).classList.toggle('none');
+        }
+    });
+};
+
+d.addEventListener('DOMContentLoaded', () => {
+    hamburgerMenu(
+        '.container-btn',
+        '#menu',
+        '#menu a',
+        '.container-btn i:first-of-type',
+        '.container-btn i:last-of-type',
+    );
+});
